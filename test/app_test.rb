@@ -83,6 +83,7 @@ class AppTest < Minitest::Test
 
     assert_equal 200, last_response.status
     people = JSON.parse(last_response.body)
+
     assert_equal 10, people.length
   end
 
