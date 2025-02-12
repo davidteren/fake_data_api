@@ -54,6 +54,7 @@ ruby test/app_test.rb
 
 We use RuboCop for code style checking:
 
+
 ```bash
 bundle exec rubocop
 ```

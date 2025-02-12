@@ -6,8 +6,8 @@ require 'faker'
 require 'rack/ssl-enforcer'
 
 configure do
+  set :port, ENV.fetch('PORT', 3000)
   set :bind, '0.0.0.0'
-  set :port, ENV['PORT'] || 3000
 end
 
 configure :production do
