@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/json'
 require 'faker'
+require 'rack/ssl-enforcer'
+
+configure :production do
+  use Rack::SSLEnforcer
+  set :clean_trace, true
+  set :protection, :except => [:json_csrf]
+end
 
 # Enable CORS
 before do
