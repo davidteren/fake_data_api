@@ -7,6 +7,11 @@ require 'sinatra/json'
 require 'faker'
 require 'rack/ssl-enforcer'
 
+configure do
+  set :bind, '0.0.0.0'
+  set :port, ENV['PORT'] || 3000
+end
+
 configure :production do
   use Rack::SSLEnforcer
   set :clean_trace, true

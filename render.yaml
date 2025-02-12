@@ -3,9 +3,11 @@ services:
     name: fake-data-api
     env: ruby
     buildCommand: bundle install
-    startCommand: bundle exec rackup config.ru -p $PORT -o 0.0.0.0
+    startCommand: bundle exec puma -C config/puma.rb
     envVars:
       - key: RACK_ENV
         value: production
+      - key: PORT
+        value: 3000
     healthCheckPath: /
     autoDeploy: true
