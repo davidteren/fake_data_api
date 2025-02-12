@@ -13,7 +13,7 @@ end
 configure :production do
   use Rack::SSLEnforcer
   set :clean_trace, true
-  set :protection, :except => [:json_csrf]
+  set :protection, except: [:json_csrf]
 end
 
 # Enable CORS

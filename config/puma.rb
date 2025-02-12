@@ -12,4 +12,4 @@ port ENV['PORT'] || 3000
 environment ENV['RACK_ENV'] || 'development'
 
 # Bind to all network interfaces
-bind 'tcp://0.0.0.0:' + (ENV['PORT'] || '3000')
+bind "tcp://0.0.0.0:#{ENV['PORT'] || '3000'}"
