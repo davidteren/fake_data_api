@@ -5,6 +5,7 @@ ruby '3.3.6'
 
 # Core gems
 gem 'puma'
+gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
 

@@ -97,6 +97,7 @@ DEPENDENCIES
   minitest
   minitest-reporters
   puma
+  rack
   rack-ssl-enforcer
   rack-test
   rubocop
