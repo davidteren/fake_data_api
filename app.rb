@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/json'
 require 'faker'
@@ -6,7 +8,7 @@ require 'faker'
 before do
   content_type :json
   headers 'Access-Control-Allow-Origin' => '*',
-          'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
+          'Access-Control-Allow-Methods' => %w[OPTIONS GET POST]
 end
 
 # Landing page
@@ -30,7 +32,7 @@ end
 # Generate multiple people
 get '/api/people/:count' do |count|
   count = count.to_i.clamp(1, 10)
-  people = count.times.map { generate_person }
+  people = Array.new(count) { generate_person }
   json people
 end
 
@@ -38,7 +40,7 @@ private
 
 def generate_person
   {
-    id: Faker::Number.unique.number(digits: 10),
+    id: Faker::Number.unique.number(digits: 10).to_s,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
