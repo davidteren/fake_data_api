@@ -11,7 +11,7 @@ configure do
 end
 
 configure :production do
-  use Rack::SSLEnforcer
+  use Rack::SslEnforcer
   set :clean_trace, true
   set :protection, except: [:json_csrf]
 end
@@ -43,7 +43,7 @@ end
 
 # Generate multiple people
 get '/api/people/:count' do |count|
-  count = count.to_i.clamp(1, 10)
+  count = count.to_i.clamp(1, 1100)
   people = Array.new(count) { generate_person }
   json people
 end
